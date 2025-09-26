@@ -17,6 +17,13 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <head>
+        {/* Balise de vérification Google AdSense */}
+        <meta
+          name="google-site-verification"
+          content="SWtIIgAGZs7sDA1CpvPOl5piwqAj0xqLr9TOH-O6HMo"
+        />
+
+        {/* Script global Google AdSense */}
         <Script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7969645992528567"
