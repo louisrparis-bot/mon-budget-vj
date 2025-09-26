@@ -1,9 +1,9 @@
 "use client"
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import AdBanner from "./ad-banner" // export default
-import { PiggyBank, TrendingUp, Shield } from "lucide-react"
 import React from "react"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import AdBanner from "./ad-banner" // ✅ import correct pour export default
+import { PiggyBank, TrendingUp, Shield } from "lucide-react"
 
 interface Tip {
   icon: React.ElementType
@@ -69,4 +69,5 @@ export default function TipsContent() {
     </div>
   )
 }
+
 
