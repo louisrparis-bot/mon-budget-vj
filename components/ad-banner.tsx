@@ -1,5 +1,6 @@
 "use client"
 
+import { useEffect } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { ExternalLink, Star } from "lucide-react"
 
@@ -17,6 +18,26 @@ export function AdBanner({ type = "banner", size = "medium" }: AdBannerProps) {
     textColor: "text-blue-900",
   }
 
+  // Initialiser Google AdSense quand le composant est monté
+  useEffect(() => {
+    try {
+      (window.adsbygoogle = window.adsbygoogle || []).push({})
+    } catch (e) {
+      console.error("Erreur Google AdSense:", e)
+    }
+  }, [])
+
+  const googleAd = (
+    <ins
+      className="adsbygoogle"
+      style={{ display: "block", margin: "1rem 0" }}
+      data-ad-client="ca-pub-2630575387"   // Ton ID client AdSense
+      data-ad-slot="4619917888"             // Ton ID d'unité d'annonce
+      data-ad-format="auto"
+      data-full-width-responsive="true"
+    />
+  )
+
   if (type === "banner") {
     return (
       <div className={`${ad.color} border rounded-lg p-3 ${size === "small" ? "text-sm" : ""}`}>
@@ -29,6 +50,8 @@ export function AdBanner({ type = "banner", size = "medium" }: AdBannerProps) {
               <h4 className={`font-semibold ${ad.textColor}`}>{ad.title}</h4>
             </div>
             <p className={`${ad.textColor} opacity-80 mt-1`}>{ad.description}</p>
+            {/* Afficher la pub Google AdSense ici */}
+            {googleAd}
           </div>
           <button className={`${ad.textColor} hover:opacity-80 flex items-center gap-1 text-sm font-medium`}>
             {ad.cta}
@@ -65,6 +88,8 @@ export function AdBanner({ type = "banner", size = "medium" }: AdBannerProps) {
           <span className="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full font-medium">Publicité</span>
           <h4 className={`font-semibold mt-2 ${ad.textColor}`}>{ad.title}</h4>
           <p className={`${ad.textColor} opacity-80 text-sm mt-1`}>{ad.description}</p>
+          {/* Afficher la pub Google AdSense ici aussi */}
+          {googleAd}
           <button
             className={`mt-3 ${ad.textColor} hover:opacity-80 text-sm font-medium flex items-center gap-1 mx-auto`}
           >
@@ -76,3 +101,4 @@ export function AdBanner({ type = "banner", size = "medium" }: AdBannerProps) {
     </Card>
   )
 }
+
