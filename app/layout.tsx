@@ -7,9 +7,6 @@ export const metadata: Metadata = {
   title: "Mon Budget - Gestion financière en couple",
   description: "Gérez facilement vos finances, seul ou en couple",
   generator: "v0.app",
-  verification: {
-    google: "SWtIIgAGZs7sDA1CpvPOl5pi", // Ajoute ici ton code de vérification Google Search Console si besoin
-  },
 }
 
 export default function RootLayout({
@@ -20,16 +17,15 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <head>
-        {/* Script Google AdSense */}
+        {/* Script Google AdSense pour validation */}
         <Script
           async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2630575387"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7969645992528567"
           crossOrigin="anonymous"
-          strategy="afterInteractive" 
+          strategy="beforeInteractive" 
         />
       </head>
       <body className="font-sans antialiased">{children}</body>
     </html>
   )
 }
-
