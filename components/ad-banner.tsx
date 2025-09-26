@@ -1,7 +1,17 @@
 "use client"
 import { useEffect } from "react"
 
-export default function AdBanner() {
+interface AdBannerProps {
+  slot: string // ID du bloc d'annonce AdSense
+  style?: React.CSSProperties
+  format?: string
+}
+
+export default function AdBanner({
+  slot,
+  style = { display: "block" },
+  format = "auto",
+}: AdBannerProps) {
   useEffect(() => {
     try {
       (window.adsbygoogle = window.adsbygoogle || []).push({})
@@ -13,11 +23,12 @@ export default function AdBanner() {
   return (
     <ins
       className="adsbygoogle"
-      style={{ display: "block" }}
+      style={style}
       data-ad-client="ca-pub-7969645992528567" // Ton ID client AdSense
-      data-ad-slot="4619917888"               // Ton ID unité d'annonce (à remplacer)
-      data-ad-format="auto"
+      data-ad-slot={slot}                         // ID du bloc passé en prop
+      data-ad-format={format}
       data-full-width-responsive="true"
     />
   )
 }
+
