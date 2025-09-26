@@ -17,12 +17,11 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <head>
-        {/* Script Google AdSense pour validation */}
         <Script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7969645992528567"
           crossOrigin="anonymous"
-          strategy="beforeInteractive" 
+          strategy="afterInteractive"
         />
       </head>
       <body className="font-sans antialiased">{children}</body>
