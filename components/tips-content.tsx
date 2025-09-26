@@ -1,11 +1,18 @@
 "use client"
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { AdBanner } from "./ad-banner"
+import AdBanner from "./ad-banner" // export default
 import { PiggyBank, TrendingUp, Shield } from "lucide-react"
+import React from "react"
 
-export function TipsContent() {
-  const tips = [
+interface Tip {
+  icon: React.ElementType
+  title: string
+  content: string
+}
+
+export default function TipsContent() {
+  const tips: Tip[] = [
     {
       icon: PiggyBank,
       title: "Règle des 50/30/20",
@@ -21,12 +28,16 @@ export function TipsContent() {
       title: "Constituez un fonds d'urgence",
       content: "Visez 3 à 6 mois de charges courantes dans un livret facilement accessible.",
     },
-  ]
+  ] || [] // fallback si undefined
+
+  if (tips.length === 0) {
+    return <p>Aucun conseil disponible pour le moment.</p>
+  }
 
   return (
     <div className="space-y-6">
       {/* Bannière publicitaire en haut */}
-      <AdBanner type="banner" size="medium" />
+      <AdBanner />
 
       <div className="grid gap-6">
         {tips.map((tip, index) => (
@@ -46,7 +57,7 @@ export function TipsContent() {
             {/* Contenu sponsorisé après le 2ème conseil */}
             {index === 1 && (
               <div className="mt-4">
-                <AdBanner type="sponsored-content" />
+                <AdBanner />
               </div>
             )}
           </div>
@@ -54,7 +65,8 @@ export function TipsContent() {
       </div>
 
       {/* Bannière publicitaire en bas */}
-      <AdBanner type="card" />
+      <AdBanner />
     </div>
   )
 }
+
