@@ -22,17 +22,20 @@ export default function RootLayout({
           name="google-site-verification"
           content="SWtIIgAGZs7sDA1CpvPOl5piwqAj0xqLr9TOH-O6HMo"
         />
+      </head>
+      <body className="font-sans antialiased">
+        {children}
 
-        {/* Script global Google AdSense */}
+        {/* Script global AdSense safe */}
         <Script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7969645992528567"
           crossOrigin="anonymous"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-      </head>
-      <body className="font-sans antialiased">{children}</body>
+      </body>
     </html>
   )
 }
+
 
