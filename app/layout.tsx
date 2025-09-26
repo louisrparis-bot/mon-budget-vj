@@ -8,8 +8,7 @@ export const metadata: Metadata = {
   description: "Gérez facilement vos finances, seul ou en couple",
   generator: "v0.app",
   verification: {
-    google: "<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7969645992528567"
-     crossorigin="anonymous"></script>", // Remplace par ton vrai code Google ici (sans les guillemets ni la balise meta)
+    google: "SWtIIgAGZs7sDA1CpvPOl5pi", // Ceci est ton code de vérification unique copié depuis Google Search Console
   },
 }
 
@@ -33,4 +32,5 @@ export default function RootLayout({
     </html>
   )
 }
+
 
