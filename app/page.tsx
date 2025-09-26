@@ -10,7 +10,7 @@ import { ExpenseForm } from "@/components/expense-form"
 import { IncomeForm } from "@/components/income-form"
 import { RotateCcw, Users, TrendingUp, TrendingDown, Lightbulb } from "lucide-react"
 import { TipsContent } from "@/components/tips-content"
-import AdBanner from "@/components/ad-banner"  // Import corrigé peut être sans accolades selon export
+import AdBanner from "@/components/ad-banner/AdBanner" // Import correct
 
 interface BudgetData {
   person1Income: number
@@ -131,8 +131,8 @@ export default function BudgetApp() {
         />
 
         {/* AdSense Banner */}
-        <div className="mt-6">
-          <AdBanner />
+        <div className="my-6">
+          <AdBanner slot="1551913179" />
         </div>
 
         {/* Main Content */}
@@ -208,4 +208,5 @@ export default function BudgetApp() {
     </div>
   )
 }
+
 
