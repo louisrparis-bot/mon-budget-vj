@@ -10,7 +10,7 @@ import { ExpenseForm } from "@/components/expense-form"
 import { IncomeForm } from "@/components/income-form"
 import { RotateCcw, Users, TrendingUp, TrendingDown, Lightbulb } from "lucide-react"
 import { TipsContent } from "@/components/tips-content"
-import { AdBanner } from "@/components/ad-banner"
+import AdBanner from "@/components/ad-banner"  // Import corrigé peut être sans accolades selon export
 
 interface BudgetData {
   person1Income: number
@@ -57,7 +57,6 @@ export default function BudgetApp() {
   const savings = totalIncome - totalExpenses
   const savingsPercentage = totalIncome > 0 ? (savings / totalIncome) * 100 : 0
 
-  // Sauvegarde automatique
   useEffect(() => {
     const saved = localStorage.getItem("budgetCouple")
     if (saved) {
@@ -131,8 +130,9 @@ export default function BudgetApp() {
           savingsPercentage={savingsPercentage}
         />
 
+        {/* AdSense Banner */}
         <div className="mt-6">
-          <AdBanner type="banner" size="small" />
+          <AdBanner />
         </div>
 
         {/* Main Content */}
@@ -208,3 +208,4 @@ export default function BudgetApp() {
     </div>
   )
 }
+
